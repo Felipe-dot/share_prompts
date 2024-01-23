@@ -11,10 +11,11 @@ const handler = NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
-  callback: {
+  callbacks: {
     async session({ session }) {
       // store the user id from MongoDB to session
       const sessionUser = await User.findOne({ email: session.user.email });
+      console.log(sessionUser);
       session.user.id = sessionUser._id.toString();
 
       return session;
@@ -30,7 +31,7 @@ const handler = NextAuth({
         if (!userExists) {
           await User.create({
             email: profile.email,
-            username: profile.name.replace(" ", "").toLowerCase(),
+            username: profile.name.replace(/ /g, "").toLowerCase(),
             image: profile.picture,
           });
         }
