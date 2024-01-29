@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Fuse from "fuse.js";
 
 import PromptCard from "./PromptCard";
 
@@ -20,9 +21,20 @@ const PromptCardList = ({ data, handleTagClick }) => {
 
 const Feed = () => {
   const [searchText, setSearchText] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
   const [posts, setPosts] = useState([]);
 
-  const handleSearchChange = (e) => {};
+  const options = {
+    keys: ["prompt", "tag"],
+    minMatchCharLength: 2,
+    includeScore: true,
+    useExtendedSearch: true,
+    threshold: 0.2,
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchText(e.target.value);
+  };
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -32,10 +44,19 @@ const Feed = () => {
       setPosts(data);
     };
 
-    console.log(posts);
-
     fetchPosts();
   }, []);
+
+  useEffect(() => {
+    if (searchText.length > 0) {
+      const fuse = new Fuse(posts, options);
+      const results = fuse.search(searchText);
+      var filteredPosts = results.map((e) => e.item);
+      setSearchResults(filteredPosts);
+    } else {
+      setSearchResults([]);
+    }
+  }, [searchText]);
 
   return (
     <section className="feed">
@@ -49,8 +70,11 @@ const Feed = () => {
           className="search_input peer"
         />
       </form>
-
-      <PromptCardList data={posts} handleTagClick={() => {}} />
+      {searchText.length === 0 ? (
+        <PromptCardList data={posts} handleTagClick={() => {}} />
+      ) : (
+        <PromptCardList data={searchResults} handleTagClick={() => {}} />
+      )}
     </section>
   );
 };
