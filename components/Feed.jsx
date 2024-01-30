@@ -26,7 +26,7 @@ const Feed = () => {
 
   const options = {
     keys: ["prompt", "tag"],
-    minMatchCharLength: 2,
+    minMatchCharLength: 1,
     includeScore: true,
     useExtendedSearch: true,
     threshold: 0.2,
@@ -34,6 +34,10 @@ const Feed = () => {
 
   const handleSearchChange = (e) => {
     setSearchText(e.target.value);
+  };
+
+  const handleTagClick = (e) => {
+    setSearchText(e);
   };
 
   useEffect(() => {
@@ -71,9 +75,9 @@ const Feed = () => {
         />
       </form>
       {searchText.length === 0 ? (
-        <PromptCardList data={posts} handleTagClick={() => {}} />
+        <PromptCardList data={posts} handleTagClick={handleTagClick} />
       ) : (
-        <PromptCardList data={searchResults} handleTagClick={() => {}} />
+        <PromptCardList data={searchResults} handleTagClick={handleTagClick} />
       )}
     </section>
   );
