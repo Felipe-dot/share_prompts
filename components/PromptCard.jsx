@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
@@ -18,7 +18,11 @@ const PromptCard = ({ post, handleTagClick, handleDelete, handleEdit }) => {
   };
 
   const handleProfileClick = () => {
-    router.push(`/profile/${post.creator._id}/?name=${post.creator.username}`);
+    <Suspense>
+      {router.push(
+        `/profile/${post.creator._id}/?name=${post.creator.username}`
+      )}
+    </Suspense>;
   };
 
   return (

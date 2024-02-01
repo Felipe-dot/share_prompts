@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
@@ -24,7 +24,7 @@ const MyProfile = () => {
   }, []);
 
   const handleEdit = (post) => {
-    router.push(`/update-prompt?id=${post._id}`);
+    <Suspense>{router.push(`/update-prompt?id=${post._id}`)}</Suspense>;
   };
 
   const handleDelete = async (post) => {
@@ -34,7 +34,7 @@ const MyProfile = () => {
 
     if (hasConfirmed) {
       try {
-        await fetch(`/api/prompt/${post._id.toString()}`, {
+        const response = await fetch(`/api/prompt/${post._id}`, {
           method: "DELETE",
         });
 
