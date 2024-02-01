@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
 
-First, run the development server:
+<p align="center">
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-licença">Licença</a>
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<p align="center">
+ <img src="https://img.shields.io/static/v1?label=PRs&message=welcome&color=49AA26&labelColor=000000" alt="PRs welcome!" />
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
+</p>
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+<br>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<p align="center">
+  <img alt="Promptopia gif" src=".github/promptopia.gif" width="80%">
+</p>
 
-## Learn More
+## 🚀 Tecnologias
 
-To learn more about Next.js, take a look at the following resources:
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Next.js
+- Tailwildcss
+- Google oAuth
+- MongoDB
+- NPM
+- Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 💻 Projeto
 
-## Deploy on Vercel
+Esse projeto foi feito com intuito de praticar o framework Next.js. O projeto consiste de um repositório de prompts para usar em IAs. O usuário é capaz de criar, editar e deletar um prompt. 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Esse projeto foi feito durante um curso do canal do Javascript Mastery presente [nesse link](https://www.youtube.com/watch?v=wm5gMKuwSYk). Além disso, fiz como um extra o desenvolvimento das seguintes features:
+- Buscar pelo nome do prompt
+- Buscar pela tag do prompt
+- Implementei o click na tag para buscar por tags correlatas
+- Implementei a visualização de perfis de outros usuários
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Foi feito o deploy do site desenvolvido utilizando a plataforma Vercel, você pode acessar através [desse link](https://share-prompts-op9ac9c3d-felipe-dot.vercel.app/)
+
+## 👨‍💻 Como-rodar-o-projeto
+
+Você precisa ter o <strong>Node.js</strong> instalado na sua máquina. Senão tiver você pode fazer o download através [desse link](https://nodejs.org/en/download/).
+
+Com o Node instalado na máquina, vc precisa apenas de 2 comandos (no terminal) na pasta do projeto, nessa ordem:
+1. `npm install` -> Para instalar as dependências do projeto. (só precisa ser executado uma vez)<br>
+2. `npm run dev` -> Para iniciar o servidor local (para acessar o projeto via navegador, digite na barra de endereço o endereço que aparecerá no terminal)<br>
+
+## :memo: Licença
+
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+Feito com ♥ by Felipe Melo
